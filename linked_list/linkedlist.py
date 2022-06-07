@@ -106,7 +106,37 @@ class LinkedList:
                 jumper_node = jumper_node.next
             print("Length is: ", count)
 
+    #reverse linkedlist
+    def reverse(self):
+        prev_node = None
+        next_node = None
+        curr_node = self.head
+
+        while(curr_node is not None):
+            next_node = curr_node.next
+            curr_node.next = prev_node
+            prev_node = curr_node
+            curr_node = next_node
         
+        self.head = prev_node
+
+    #find middle node of linkedlist
+    def find_middle_node(self):
+        slow_node = self.head
+        fast_node = self.head
+        
+        while fast_node and fast_node.next:
+            fast_node = fast_node.next.next
+            slow_node = slow_node.next
+        
+        return slow_node.data
+
+
+
+
+
+
+
         
         
             
